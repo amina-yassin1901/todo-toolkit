@@ -5,19 +5,25 @@ function TodoItem({ todo }) {
   const dispatch = useDispatch();
   return (
     <li className={styles.item}>
-      <p
-        style={{
-          textDecoration: todo.completed ? "line-through" : "none",
-        }}
-      >
+      <p className={`${styles.text} ${todo.completed ? styles.completed : ""}`}>
         {todo.text}
       </p>
 
-      <button onClick={() => dispatch(toggleTodo(todo.id))}>
-        {todo.completed ? "Undo" : "Complete"}
-      </button>
+      <div className={styles.buttons}>
+        <button
+          className={styles.completeBtn}
+          onClick={() => dispatch(toggleTodo(todo.id))}
+        >
+          {todo.completed ? "Undo" : "Complete"}
+        </button>
 
-      <button onClick={() => dispatch(deleteTodo(todo.id))}>Delete</button>
+        <button
+          className={styles.deleteBtn}
+          onClick={() => dispatch(deleteTodo(todo.id))}
+        >
+          Delete
+        </button>
+      </div>
     </li>
   );
 }

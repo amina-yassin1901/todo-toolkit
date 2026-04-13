@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 function TodoList() {
   const { todos } = useSelector((state) => state.todo);
   return (
-    <div>
-      <h2>Todo List</h2>
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Todo List</h2>
       {todos.length === 0 ? (
         <p>Todo list is empty!</p>
       ) : (
-        <ul>
+        <ul className={styles.list}>
           {todos.map((todo) => (
             <TodoItem todo={todo} key={todo.id} />
           ))}

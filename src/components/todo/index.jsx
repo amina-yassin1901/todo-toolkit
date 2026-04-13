@@ -15,6 +15,7 @@ function Todo() {
     <div className={styles.container}>
       <div>
         <input
+          className={styles.input}
           value={text}
           onChange={(e) => setText(e.target.value)}
           type="text"
@@ -25,7 +26,9 @@ function Todo() {
             }
           }}
         />
-        <button onClick={handleAdd}>Add Todo</button>
+        <button className={styles.button} onClick={handleAdd}>
+          Add Todo
+        </button>
       </div>
       <TodoList />
     </div>
